@@ -1,0 +1,13 @@
+SELECT ta.ประเทศ, ta.การจัดเตรียมการเดินทาง, ta.`2561`, pt.วัตถุประสงค์ของการเดินทาง, pt.`2561`
+FROM travel_arrangements ta
+JOIN purpose_of_thetrip pt
+ON TRIM(ta.ประเทศ) = TRIM(pt.ประเทศ)
+WHERE ta.ประเทศ NOT LIKE '%ประเทศอื่นๆ%';
+
+SELECT MEDIAN(`2561`) AS median_value
+FROM travel_arrangements
+WHERE ประเทศ LIKE '%ลาว%';
+
+SELECT ประเทศ, การจัดเตรียมการเดินทาง, `2561`
+FROM travel_arrangements
+WHERE ประเทศ LIKE '%ลาว%';
